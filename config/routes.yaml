@@ -1,3 +1,28 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+classes_get:
+  path: /api/classes/{uid}
+  methods: [GET]
+  defaults:
+    _controller: App\Controller\ClassesController::getClassesAction
+    _format: json
+
+
+classes_post:
+  path: /api/classes
+  methods: [POST]
+  defaults:
+    _controller: App\Controller\ClassesController::postClassesAction
+    _format: json
+
+bookings_get:
+  path: /api/bookings/{uid}
+  methods: [GET]
+  defaults:
+    _controller: App\Controller\BookingsController::getBookingsAction
+    _format: json
+
+bookings_post:
+  path: /api/bookings
+  methods: [POST]
+  defaults:
+    _controller: App\Controller\BookingsController::postBookingsAction
+    _format: json

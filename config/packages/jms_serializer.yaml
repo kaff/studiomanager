@@ -1,0 +1,7 @@
+jms_serializer:
+    metadata:
+        auto_detection: false
+        directories:
+            studio_manager:
+                namespace_prefix: "StudioManager"
+                path: "%kernel.root_dir%/../../config/serializer"

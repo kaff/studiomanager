@@ -1,0 +1,3 @@
+suites:
+  studio_manager:
+    spec_path: "%paths.config%/tests"

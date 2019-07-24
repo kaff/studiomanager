@@ -1,4 +1,9 @@
-
+.idea/
+!.gitkeep
+/bin/
+/docker-compose.override.yml
+/.env
+!/bin/console
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -7,3 +12,12 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> behat/symfony2-extension ###
+behat.yml
+###< behat/symfony2-extension ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

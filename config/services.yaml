@@ -14,14 +14,31 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
-        resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        resource: '../src/App/*'
+        exclude: '../src/App/{DependencyInjection,Entity,Migrations,Tests,StudioManager,Kernel.php}'
+
+    StudioManager\:
+        resource: '../src/StudioManager'
+        exclude: '../src/{Domain, UseCase}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
-        resource: '../src/Controller'
+        resource: '../src/App/Controller'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    repository.class:
+        class: App\Repository\ClassRepository
+        arguments:
+            - "%kernel.project_dir%/var/storage"
+
+    StudioManager\Application\UseCase\AddClass:
+        arguments:
+            - "@repository.class"
+
+    StudioManager\Application\UseCase\AddBooking:
+        arguments:
+            - "@repository.class"

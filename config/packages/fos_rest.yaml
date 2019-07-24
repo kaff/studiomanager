@@ -1,0 +1,21 @@
+fos_rest:
+  param_fetcher_listener:  true
+  allowed_methods_listener:  true
+  routing_loader:
+    default_format: json
+    include_format: false
+  view:
+    mime_types:
+      json: ['application/json']
+  body_converter:
+    enabled: true
+    validate: true
+  exception:
+    enabled: true
+    exception_controller: 'fos_rest.exception.controller:showAction'
+    codes:
+      'StudioManager\Application\UseCase\Exception\UseCaseException': HTTP_BAD_REQUEST
+    messages:
+      'StudioManager\Application\UseCase\Exception\UseCaseException': true
+
+

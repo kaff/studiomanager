@@ -1,0 +1,12 @@
+StudioManager\Application\UseCase\AddClassCommand:
+  properties:
+    name:
+      type: string
+    startDate:
+      type: string
+      serialized_name: start_date
+    endDate:
+      type: string
+      serialized_name: end_date
+    capacity:
+      type: integer

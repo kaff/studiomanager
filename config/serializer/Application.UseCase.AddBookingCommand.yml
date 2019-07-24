@@ -1,0 +1,8 @@
+StudioManager\Application\UseCase\AddBookingCommand:
+  properties:
+    memberName:
+      type: string
+      serialized_name: member_name
+    classDate:
+      type: string
+      serialized_name: class_date

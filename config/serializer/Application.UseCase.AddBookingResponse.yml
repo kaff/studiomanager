@@ -1,0 +1,15 @@
+StudioManager\Application\UseCase\AddBookingResponse:
+  properties:
+    bookingUid:
+      type: string
+      serialized_name: booking_uid
+    memberName:
+      type: string
+      serialized_name: member_name
+    classDate:
+      type: DateTime<'Y-m-d'>
+      serialized_name: class_date
+    className:
+      type: string
+      serialized_name: class_name
+

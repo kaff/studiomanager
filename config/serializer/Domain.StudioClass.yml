@@ -1,0 +1,16 @@
+StudioManager\Domain\StudioClass:
+  properties:
+    uid:
+      type: string
+    name:
+      type: string
+    startDate:
+      type: DateTime<'Y-m-d'>
+      serialized_name: start_date
+    endDate:
+      type: DateTime<'Y-m-d'>
+      serialized_name: end_date
+    capacity:
+      type: integer
+    bookings:
+      type: array<Booking>

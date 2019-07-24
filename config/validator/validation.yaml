@@ -1,0 +1,29 @@
+StudioManager\Application\UseCase\AddClassCommand:
+  properties:
+    name:
+      - NotBlank: ~
+      - Length:
+          max: 255
+          min: 1
+    startDate:
+      - NotBlank: ~
+      - Date:
+          message: 'This value is not a valid date. Correct format: YYYY-MM-DD'
+    endDate:
+      - NotBlank: ~
+      - Date:
+          message: 'This value is not a valid date. Correct format: YYYY-MM-DD'
+    capacity:
+      - NotBlank: ~
+
+StudioManager\Application\UseCase\AddBookingCommand:
+  properties:
+    memberName:
+      - NotBlank: ~
+      - Length:
+          max: 255
+          min: 1
+    classDate:
+      - NotBlank: ~
+      - Date:
+          message: 'This value is not a valid date. Correct format: YYYY-MM-DD'
