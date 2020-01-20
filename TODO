@@ -1,0 +1,6 @@
+ograć odpalanie tego w kontenerze jako PROD
+założyć konto na dockerhub żeby wypycahac tam obrazy
+budować apliakcję - osobny obraz dla developmentu i  osobny obraz z wersją aplikacji
+
+docker run -d -p 80:80 studio-manager-ci:b1
+

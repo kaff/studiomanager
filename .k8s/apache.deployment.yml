@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-studio-manager-deployment
+  labels:
+    app: studio-manager-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: studio-manager-deployment
+  template:
+    metadata:
+      labels:
+        app: studio-manager-deployment
+    spec:
+      containers:
+        - name: php-studio-manager
+          image: eu.gcr.io/esky-dbr-test/php-app:latest
+          ports:
+            - containerPort: 8080
+
