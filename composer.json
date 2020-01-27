@@ -22,7 +22,7 @@
     "imbo/behat-api-extension": "^2.1",
     "phpspec/phpspec": "^4.3",
     "phpunit/phpunit": "^7.5",
-    "symfony/debug-pack": "*",
+    "symfony/debuggit -pack": "*",
     "symfony/dotenv": "^4.0",
     "symfony/maker-bundle": "^1.0",
     "symfony/profiler-pack": "^1.0"
