@@ -15,15 +15,15 @@
     "symfony/form": "4.2.*",
     "symfony/framework-bundle": "4.2.*",
     "symfony/validator": "4.2.*",
-    "symfony/yaml": "4.2.*"
+    "symfony/yaml": "4.2.*",
+    "symfony/dotenv": "^4.0"
   },
   "require-dev": {
     "behat/symfony2-extension": "^2.1",
     "imbo/behat-api-extension": "^2.1",
     "phpspec/phpspec": "^4.3",
     "phpunit/phpunit": "^7.5",
-    "symfony/debuggit -pack": "*",
-    "symfony/dotenv": "^4.0",
+    "symfony/debug-pack": "*",
     "symfony/maker-bundle": "^1.0",
     "symfony/profiler-pack": "^1.0"
   },

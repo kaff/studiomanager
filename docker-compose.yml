@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
     php:
         build:
@@ -15,3 +15,17 @@ services:
         hostname: php-serv
         dns:
             - 8.8.8.8
+networks:
+    # Default network configuration for this services stack (adjust for your own needs)
+    # list of registered networks: https://docs.google.com/spreadsheets/d/1n-mge9JqDwQC4bfsE1lHGRHviMIuWhaWnoNxfea7hwU
+    default:
+        ipam:
+            config:
+                - subnet: 10.1.1.0/24
+                  gateway: 10.1.1.1
+        driver_opts:
+            # Default IP when binding above container ports (use it at your /etc/hosts)
+            # NOTE: On Linux there is the same IP address as on `networks.default.ipam.config.0.gateway`
+            # On OSX first You must add an alias for `lo0` interface, i.e. `sudo ifconfig lo0 alias 172.21.11.1`
+            # See https://goo.gl/MoJqcA how to add this alias on startup.
+            com.docker.network.bridge.host_binding_ipv4: 10.1.1.1

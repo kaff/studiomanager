@@ -1,4 +1,5 @@
-ograć odpalanie tego w kontenerze jako PROD
+build się wywala na twigu, trzeba sprawdzić dlaczego, i dodać twiga to require
+ograć odpalanie tego w kontenerze jako PROD - zmienna jest ustawiona w kontenerze, trzeba sprawdzic czy aplikacja poprawnie ją czyta, dot-env został przesunięty do require-dev
 założyć konto na dockerhub żeby wypycahac tam obrazy
 budować apliakcję - osobny obraz dla developmentu i  osobny obraz z wersją aplikacji
 
