@@ -39,5 +39,5 @@ COPY composer.lock /var/www/html/
 COPY .gitignore /var/www/html/
 COPY .env /var/www/html/
 
-RUN mkdir -p /var/www/html/var/
+RUN mkdir -p /var/www/html/var/ && chown  www-data:www-data /var/www/html/var/ -r
 
