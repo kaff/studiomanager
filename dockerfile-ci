@@ -32,6 +32,12 @@ COPY config /var/www/html/config
 COPY public /var/www/html/public
 COPY src /var/www/html/src
 COPY vendor /var/www/html/vendor
+COPY symfony.lock /var/www/html/
+COPY LICENSE /var/www/html/
+COPY composer.json /var/www/html/
+COPY composer.lock /var/www/html/
+COPY .gitignore /var/www/html/
+COPY .env /var/www/html/
 
 RUN mkdir -p /var/www/html/var/
 
