@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: php-studio-manager
-          image: eu.gcr.io/esky-dbr-test/php-app:latest
+          image: studio-manager-ci:b1
           ports:
             - containerPort: 8080
 

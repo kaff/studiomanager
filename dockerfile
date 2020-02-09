@@ -1,10 +1,11 @@
 FROM php:7.2-apache
-ENV APP_RUN_USER=docker \
-    APP_RUN_UID=1000 \
-    APP_RUN_GROUP=docker \
-    APP_RUN_GID=1000 \
-    APP_HOME=/home/docker \
-    APACHE_RUN_USER=docker
+
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+#ENV APP_ENV=prod
+
+RUN a2enmod rewrite
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 RUN apt-get update && apt-get install -y \
     zlib1g-dev \
@@ -27,28 +28,17 @@ RUN apt-get update && apt-get install -y \
     && git config --global user.name "Tomasz Paloc" \
     && git config --global user.email "tomasz.paloc@gmail.com"
 
-# Install gosu to easly change UID
-RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
-RUN curl -sSLo \
-        /usr/local/bin/gosu \
-        "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" \
- && curl -sSLo \
-        /usr/local/bin/gosu.asc \
-        "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture).asc" \
- && gpg --verify /usr/local/bin/gosu.asc \
- && rm /usr/local/bin/gosu.asc \
- && chmod u+s,+x /usr/local/bin/gosu
+COPY bin /var/www/html/bin
+COPY config /var/www/html/config
+COPY public /var/www/html/public
+COPY src /var/www/html/src
+COPY vendor /var/www/html/vendor
+COPY symfony.lock /var/www/html/
+COPY LICENSE /var/www/html/
+COPY composer.json /var/www/html/
+COPY composer.lock /var/www/html/
+COPY .gitignore /var/www/html/
+COPY .env /var/www/html/
 
-# Configure user and group
-RUN groupadd -g "${APP_RUN_GID}" "${APP_RUN_GROUP}" \
- && useradd -d "${APP_HOME}" -u "${APP_RUN_UID}" -g "${APP_RUN_GID}" -m -s /bin/bash "${APP_RUN_USER}" \
- && echo "${APP_RUN_USER}:${APP_RUN_USER}" | chpasswd
+RUN mkdir -p /var/www/html/var/ && chown www-data:www-data /var/www/html/var/
 
-RUN adduser "${APP_RUN_USER}" sudo
-
-# Configure sudo command
-# ADD sudoers.d/ /etc/sudoers.d/
-# RUN adduser "${APP_RUN_USER}" sudo \
-# && chmod -R 0440 /etc/sudoers.d/*
-
-# USER "${APP_RUN_USER}"
