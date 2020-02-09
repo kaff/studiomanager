@@ -1,4 +1,5 @@
 cd build
+sudo rm -rf b0
 git clone -b k8s https://github.com/kaff/studiomanager.git b0
 cd b0
 docker-compose up -d
